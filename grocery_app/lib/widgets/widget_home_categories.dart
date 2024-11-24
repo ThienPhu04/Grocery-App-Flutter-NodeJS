@@ -38,7 +38,6 @@ class HomeCategoriesWidget extends ConsumerWidget {
         PaginationModel(page: 1, pageSize: 10),
       ),
     );
-
     return categories.when(
       data: (list) {
         return _buildCategoryList(list!, ref);
@@ -76,7 +75,7 @@ class HomeCategoriesWidget extends ConsumerWidget {
               ref.read(productsNotifierProvider.notifier).getProducts();
 
               Navigator.of(context).pushNamed(
-                "/prodcuts",
+                "/products",
                 arguments: {
                   'categoryId': data.categoryId,
                   'categoryName': data.categoryName,

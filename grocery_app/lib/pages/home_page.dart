@@ -4,6 +4,7 @@ import 'package:grocery_app/models/category.dart';
 import 'package:grocery_app/models/product.dart';
 import 'package:grocery_app/widgets/widget_home_categories.dart';
 import 'package:grocery_app/widgets/widget_home_products.dart';
+import 'package:grocery_app/widgets/widget_home_slider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,10 +14,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: ListView(
-          children: [
-            const HomeCategoriesWidget(),
-            const HomeProductsWidget()
-            // ProductCard(model: model)
+          children: const [
+            HomeSliderWidget(),
+            HomeCategoriesWidget(),
+            HomeProductsWidget()
           ],
         ),
       ),

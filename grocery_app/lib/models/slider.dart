@@ -4,6 +4,9 @@ import '../config.dart';
 part 'slider.g.dart';
 part 'slider.freezed.dart';
 
+List<SliderModel> sliderFromJson(dynamic str) =>
+    List<SliderModel>.from((str).map((x) => SliderModel.fromJson(x)));
+
 @freezed
 abstract class SliderModel with _$SliderModel {
   factory SliderModel({

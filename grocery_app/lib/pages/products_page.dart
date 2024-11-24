@@ -43,7 +43,7 @@ class _ProductsPageState extends State<ProductsPage> {
   }
 
   @override
-  void disChangeDependencies() {
+  void didChangeDependencies() {
     final Map? arguments = ModalRoute.of(context)!.settings.arguments as Map;
 
     if (arguments != null) {
@@ -170,13 +170,13 @@ class _ProductsList extends ConsumerWidget {
           ),
         ),
         Visibility(
-            visible:
-                productsState.isLoading && productsState.products.isNotEmpty,
-            child: SizedBox(
-              height: 35,
-              width: 35,
-              child: const CircularProgressIndicator(),
-            ))
+          visible: productsState.isLoading && productsState.products.isNotEmpty,
+          child: SizedBox(
+            height: 35,
+            width: 35,
+            child: const CircularProgressIndicator(),
+          ),
+        )
       ],
     );
   }

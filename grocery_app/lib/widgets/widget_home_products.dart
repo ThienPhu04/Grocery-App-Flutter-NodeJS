@@ -12,26 +12,6 @@ class HomeProductsWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // List<Product> list = List<Product>.empty(growable: true);
-
-    // list.add(
-    //   Product(
-    //     productName: "Britannia Choco Chill Cake",
-    //     category: Category(
-    //         categoryName: "Bakery & Biscuits",
-    //         categoryImage: "/uploads/categories/1642279565619-biscuits.png",
-    //         categoryId: "61e3328d5537e82b17a8bf42"),
-    //     productShortDescription:
-    //         "Britannia Chocolate Cake has soft and delicious cake slices with the goodness of chocolate, milk and eggs",
-    //     productPrice: 30,
-    //     productSalePrice: 26,
-    //     productImage: "/uploads/products/1642794806777-pro_362624.jpg",
-    //     productSKU: "GA-0001",
-    //     productType: "simple",
-    //     stockStatus: "IN",
-    //     productId: "61eb0f36c1c5d2c51893e1ac",
-    //   ),
-    // );
     return Container(
       color: const Color(0xffF4F7FA),
       child: Column(
