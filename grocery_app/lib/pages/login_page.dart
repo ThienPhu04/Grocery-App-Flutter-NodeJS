@@ -140,6 +140,7 @@ class _LoginPageState extends State<LoginPage> {
             hintFontSize: 14,
             hintColor: Colors.black.withOpacity(.6),
             backgroundColor: Colors.grey.shade100,
+            obscureText: hidePassword,
             borderFocusColor: Colors.grey.shade200,
           ),
           SizedBox(
