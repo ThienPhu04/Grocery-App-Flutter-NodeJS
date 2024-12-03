@@ -1,4 +1,5 @@
 const { cart } = require("../models/cart.model");
+const async = require('async');
 
 async function addCart(params, callback) {
     if (!params.userId) {
@@ -28,8 +29,7 @@ async function addCart(params, callback) {
                 cartDB.products = params.products;
                 cartDB.save();
                 return callback(null, cartDB);
-            }
-            else {
+            }else {
                 async.eachSeries(params.products, function (product, asyncDone) {
                     let itemIndex = cartDB.products.findIndex(p => p.product == product.product);
 
