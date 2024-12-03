@@ -28,12 +28,18 @@ class HomeSliderWidget extends ConsumerWidget {
 
     return sliders.when(
       data: (list) {
-        // Filter out null elements from the list if any
-        final nonNullSliders = list?.whereType<SliderModel>().toList() ?? [];
-        if (nonNullSliders.isEmpty) {
-          return const Center(child: Text('No sliders available.'));
+        if (list == null || list.isEmpty) {
+          return const Center(child: Text("No sliders available"));
         }
-        return imageCarousel(nonNullSliders); // Pass the filtered list
+
+        // Lọc các phần tử không phải null
+        final nonNullList = list.whereType<SliderModel>().toList();
+
+        if (nonNullList.isEmpty) {
+          return const Center(child: Text("No valid sliders available"));
+        }
+
+        return imageCarousel(nonNullList);
       },
       error: (error, stack) => Center(
         child: Text('Error loading sliders: $error'),
@@ -48,19 +54,11 @@ class HomeSliderWidget extends ConsumerWidget {
     return CarouselSlider(
       items: sliderList.map((model) {
         return Container(
-          child: Image.network(
-            model.fullImagePath,
-            fit: BoxFit.cover,
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) {
-                return child;
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            },
-            errorBuilder: (context, error, stackTrace) {
-              return const Center(child: Icon(Icons.error));
-            },
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(model.fullImagePath),
+              fit: BoxFit.contain,
+            ),
           ),
         );
       }).toList(),

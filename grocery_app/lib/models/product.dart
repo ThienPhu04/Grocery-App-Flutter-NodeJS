@@ -14,19 +14,18 @@ List<Product> productsFromJson(dynamic str) => List<Product>.from(
 
 @freezed
 abstract class Product with _$Product {
-  factory Product({
-    required String productName,
-    required Category category,
-    required String productShortDescription,
-    required double productPrice,
-    required double productSalePrice,
-    required String productImage,
-    required String productSKU,
-    required String productType,
-    required String stockStatus,
-    required String productId,
-    List<String>? relatedProducts,
-  }) = _Product;
+  factory Product(
+      {required String productName,
+      required Category category,
+      required String? productShortDescription,
+      required double productPrice,
+      required double productSalePrice,
+      required String productImage,
+      required String? productSKU,
+      required String? productType,
+      required String? stockStatus,
+      required String productId,
+      List<String>? relatedProducts}) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);

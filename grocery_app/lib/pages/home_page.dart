@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:grocery_app/components/product_card.dart';
-import 'package:grocery_app/models/category.dart';
-import 'package:grocery_app/models/product.dart';
+import 'package:grocery_app/pages/dashboard_page.dart';
 import 'package:grocery_app/widgets/widget_home_categories.dart';
 import 'package:grocery_app/widgets/widget_home_products.dart';
 import 'package:grocery_app/widgets/widget_home_slider.dart';

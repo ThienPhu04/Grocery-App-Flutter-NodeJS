@@ -54,9 +54,11 @@ router.get("/slider", sliderController.findAll);
 router.get("/slider/:id", sliderController.findOne);
 
 // Update a Slider with id
+
 router.put("/slider/:id", sliderController.update);
 
 // Delete a Slider with id
+
 router.delete("/slider/:id", sliderController.delete);
 
 // Create a new Related Product

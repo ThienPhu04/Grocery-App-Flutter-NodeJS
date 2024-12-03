@@ -9,7 +9,7 @@ import 'package:grocery_app/pages/register_page.dart';
 import 'package:grocery_app/utils/shared_service.dart';
 
 Widget _defaultHome = const LoginPage();
-
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   bool _result = await SharedService.isLoggedIn();
@@ -17,11 +17,11 @@ void main() async {
   if (_result) {
     _defaultHome = const DashboardPage();
   }
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +31,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const HomePage(),
+      navigatorKey: navigatorKey,
       routes: <String, WidgetBuilder>{
         '/': (context) => _defaultHome,
-        '/login': (BuildContext context) => const LoginPage(),
-        '/home': (BuildContext context) => const HomePage(),
         '/register': (BuildContext context) => const RegisterPage(),
+        '/home': (BuildContext context) => const HomePage(),
+        '/login': (BuildContext context) => const LoginPage(),
         '/products': (BuildContext context) => const ProductsPage(),
         '/product-details': (BuildContext context) => const ProductDetailsPage()
       },

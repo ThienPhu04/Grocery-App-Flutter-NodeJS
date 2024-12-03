@@ -11,6 +11,7 @@ class HomeCategoriesWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
+      decoration: BoxDecoration(color: Colors.white),
       child: Column(
         children: [
           const Padding(

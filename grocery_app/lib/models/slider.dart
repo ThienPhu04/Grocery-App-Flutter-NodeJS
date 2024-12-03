@@ -1,11 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../config.dart';
+
 part 'slider.g.dart';
 part 'slider.freezed.dart';
 
-List<SliderModel> sliderFromJson(dynamic str) =>
-    List<SliderModel>.from((str).map((x) => SliderModel.fromJson(x)));
+List<SliderModel> sliderFromJson(dynamic str) {
+  return List<SliderModel>.from((str ?? []).map((x) {
+    return SliderModel.fromJson({
+      'sliderName': x['sliderName'] ?? '',
+      'sliderImage': x['sliderImage'] ?? '',
+      'sliderId': x['sliderId'] ?? '',
+    });
+  }));
+}
 
 @freezed
 abstract class SliderModel with _$SliderModel {
